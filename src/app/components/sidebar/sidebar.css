@@ -1,0 +1,36 @@
+.sidebar_container {
+  height: 100%;
+  width: 283px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+.sidebar_container .logo {
+  margin-top: 35px;
+  padding-left: 30px;
+  height: 28px;
+}
+.sidebar_container .menus {
+  margin-top: 30px;
+}
+.sidebar_container .menus :hover {
+  background: whitesmoke;
+}
+.sidebar_container .menus div {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  font-family: Work Sans;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 18.77px;
+  text-align: left;
+  color: rgb(33, 63, 125);
+  cursor: pointer;
+  padding-left: 30px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}/*# sourceMappingURL=sidebar.css.map */

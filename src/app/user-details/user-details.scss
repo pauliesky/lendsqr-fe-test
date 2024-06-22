@@ -1,0 +1,160 @@
+.user_container {
+    margin-left: 283px;
+    background: #FBFBFB;
+    padding-left: 60px;
+    padding-right: 60px;
+    height: 100%;
+
+    .back {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        flex-direction: row;
+        font-family: Work Sans;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 18.77px;
+        text-align: left;
+        color: rgba(84, 95, 125, 1);
+    }
+
+    .header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+
+        .header_buttons {
+
+            display: flex;
+            align-items: center;
+            justify-content: 'center';
+            gap: 8px;
+
+            .blacklist {
+                border-radius: 8px;
+
+                padding: 12px 16px;
+                border: 1px solid rgba(228, 3, 59, 1);
+                font-family: Work Sans;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 16.42px;
+                letter-spacing: 0.1em;
+                text-align: center;
+                color: rgba(228, 3, 59, 1);
+                cursor: pointer;
+            }
+
+
+            .activate {
+                border-radius: 8px;
+                border: 1px solid rgba(57, 205, 204, 1);
+                padding: 12px 16px;
+                font-family: Work Sans;
+                font-size: 14px;
+                font-weight: 600;
+                line-height: 16.42px;
+                letter-spacing: 0.1em;
+                text-align: center;
+                color: rgba(57, 205, 204, 1);
+                cursor: pointer;
+
+            }
+
+        }
+    }
+
+    section {
+        border-radius: 4px;
+        border: 1px solid rgba(33, 63, 125, 0.06);
+        padding: 30px 0px 0px 30px;
+        background-color: rgba(255, 255, 255, 1);
+        box-shadow: rgba(3, 5, 20, 0.04);
+
+
+        .basic_info {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+
+            div:nth-child(2) {
+                display: flex;
+                justify-content: center;
+                align-items: left;
+                gap: 5px;
+                flex-direction: column;
+
+                p:nth-child(1) {
+                    font-family: Work Sans;
+                    font-size: 22px;
+                    font-weight: 500;
+                    line-height: 25.81px;
+                    text-align: left;
+                    color: rgba(33, 63, 125, 1);
+                }
+
+                p:nth-child(2) {
+                    font-family: Work Sans;
+                    font-size: 14px;
+                    font-weight: 400;
+                    line-height: 16.42px;
+                    text-align: left;
+                    color: rgba(84, 95, 125, 1);
+                }
+
+            }
+
+            div:nth-child(3) {
+                border-left: 1px solid rgba(84, 95, 125, 0.2);
+                border-right: 1px solid rgba(84, 95, 125, 0.2);
+                padding: 0px 30px;
+                display: flex;
+                justify-content: center;
+                align-items: left;
+                gap: 5px;
+                height: 50px;
+                flex-direction: column;
+                font-family: Work Sans;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 16.42px;
+                text-align: left;
+                color: rgba(84, 95, 125, 1);
+            }
+
+            div:nth-child(4) {
+
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                gap: 5px;
+
+                p:nth-child(1) {
+                    font-family: Work Sans;
+                    font-size: 22px;
+                    font-weight: 500;
+                    line-height: 25.81px;
+                    text-align: left;
+                    color: rgba(33, 63, 125, 1);
+                }
+
+                p:nth-child(2) {
+                    font-family: Work Sans;
+                    font-size: 12px;
+                    font-weight: 400;
+                    line-height: 14.08px;
+                    text-align: left;
+                    color: rgba(84, 95, 125, 1);
+                }
+
+            }
+        }
+
+
+    }
+
+
+
+}

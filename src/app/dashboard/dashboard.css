@@ -1,0 +1,47 @@
+.dashboard_container {
+  margin-left: 283px;
+  background: #FBFBFB;
+  padding-left: 60px;
+  padding-right: 60px;
+  height: 100%;
+}
+.dashboard_container .header {
+  font-family: Work Sans;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 28.15px;
+  text-align: left;
+  color: rgb(33, 63, 125);
+}
+.dashboard_container .card_container {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  gap: 25px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.dashboard_container .card_container .card {
+  height: 160px;
+  border: 1px solid rgba(33, 63, 125, 0.06);
+  border-radius: 4px;
+  background-color: rgb(255, 255, 255);
+  padding: 20px 30px;
+}
+.dashboard_container .card_container .card p:nth-child(2) {
+  margin-top: 14px;
+  margin-bottom: 12px;
+  font-family: Work Sans;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.42px;
+  text-align: left;
+  color: rgb(84, 95, 125);
+}
+.dashboard_container .card_container .card p:nth-child(3) {
+  font-family: Work Sans;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 28.15px;
+  text-align: left;
+  color: rgb(33, 63, 125);
+}/*# sourceMappingURL=dashboard.css.map */

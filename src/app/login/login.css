@@ -1,0 +1,123 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login_container {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.login_container section:nth-child(1) {
+  display: flex;
+  flex-direction: column;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.login_container section:nth-child(1) .logo {
+  margin-top: 106px;
+  margin-left: 97px;
+}
+.login_container section:nth-child(1) .banner {
+  margin-top: 139px;
+  margin-left: 67px;
+}
+.login_container section:nth-child(2) {
+  width: 100%;
+  max-width: 447px;
+}
+.login_container section:nth-child(2) div:nth-child(1) {
+  margin-top: 220px;
+}
+.login_container section:nth-child(2) div:nth-child(1) p:nth-child(1) {
+  font-family: Avenir Next;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 54.64px;
+  letter-spacing: -0.04em;
+  text-align: left;
+  color: #213F7D;
+}
+.login_container section:nth-child(2) div:nth-child(1) p:nth-child(2) {
+  font-family: Avenir Next;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 27.32px;
+  text-align: left;
+  color: #545F7D;
+}
+.login_container section:nth-child(2) form {
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.login_container section:nth-child(2) form .email {
+  width: 447px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  padding: 16px 16px;
+  outline: none;
+}
+.login_container section:nth-child(2) form p {
+  font-family: Avenir Next;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16.39px;
+  letter-spacing: 0.1em;
+  text-align: left;
+  color: rgb(57, 205, 204);
+  cursor: pointer;
+}
+.login_container section:nth-child(2) form .password {
+  width: 447px;
+  height: 50px;
+  border-radius: 5px;
+  border: 2px solid rgba(84, 95, 125, 0.15);
+  padding: 16px 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.login_container section:nth-child(2) form .password input {
+  width: 100%;
+  outline: none;
+  border: none;
+}
+.login_container section:nth-child(2) form .password input ::-moz-placeholder {
+  font-family: Avenir Next;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.12px;
+  text-align: left;
+  color: rgb(84, 95, 125);
+}
+.login_container section:nth-child(2) form .password input ::placeholder {
+  font-family: Avenir Next;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 19.12px;
+  text-align: left;
+  color: rgb(84, 95, 125);
+}
+.login_container section:nth-child(2) form .password p {
+  cursor: pointer;
+}
+.login_container section:nth-child(2) form button {
+  width: 447px;
+  height: 48px;
+  gap: 0px;
+  border-radius: 8px;
+  opacity: 0px;
+  background: rgb(57, 205, 204);
+  font-family: Avenir Next;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 19.12px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  border: none;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}/*# sourceMappingURL=login.css.map */
