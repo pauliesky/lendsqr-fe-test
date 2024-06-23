@@ -65,7 +65,7 @@ const page = () => {
             <div className='activate'>ACTIVATE USERS</div>
           </div>
         </div>
-        <section>
+        <section className='basic_info-container'>
           <div className='basic_info'>
             <Image src={picture} alt='image' />
             <div>

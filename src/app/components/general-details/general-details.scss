@@ -1,0 +1,41 @@
+.details_container {
+
+    section {
+        padding-bottom: 28px;
+        margin-bottom: 30px;
+        border-bottom: 1px solid rgba(33, 63, 125, 0.1);
+
+
+        div {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            margin-top: 30px;
+
+            p:nth-child(1) {
+                font-family: Work Sans;
+                font-size: 12px;
+                font-weight: 400;
+                line-height: 14.08px;
+                text-align: left;
+                color: rgba(84, 95, 125, 1);
+                margin-bottom: 8px;
+
+            }
+
+            p:nth-child(2) {
+                font-family: Work Sans;
+                font-size: 16px;
+                font-weight: 500;
+                line-height: 18.77px;
+                text-align: left;
+                color: rgba(84, 95, 125, 1);
+
+            }
+
+
+
+        }
+
+    }
+
+}
