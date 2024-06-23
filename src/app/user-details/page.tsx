@@ -57,7 +57,7 @@ const page = () => {
   return (
     <>
       <div className='user_container'>
-        <div className='back'> <Image alt='back' src={backButton} />  Back to users</div>
+        <div className='user_container_back'> <Image alt='back' src={backButton} />  Back to users</div>
         <div className='header'>
           <p>User Details</p>
           <div className='header_buttons'>
