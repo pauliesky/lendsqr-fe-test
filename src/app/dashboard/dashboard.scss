@@ -1,7 +1,7 @@
 .dashboard_container {
 
     margin-left: 283px;
-    background: #FBFBFB;
+    background: #f9f9f9;
     padding-left: 60px;
     padding-right: 60px;
     height: 100%;
@@ -13,7 +13,7 @@
         line-height: 28.15px;
         text-align: left;
         color: rgba(33, 63, 125, 1);
-        ;
+
 
     }
 
@@ -67,6 +67,15 @@
         padding: 30px;
         box-shadow: rgba(0, 0, 0, 0.04);
         border-radius: 4px;
+
+
+        &__filter__icon {
+            position: relative;
+        }
+
+        &__filter__wrapper {
+            position: absolute;
+        }
     }
 
 }

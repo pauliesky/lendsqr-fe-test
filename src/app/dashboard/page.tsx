@@ -3,7 +3,7 @@ import React from 'react'
 import './dashboard.scss'
 import Image from 'next/image'
 import Gender from '../../../public/images/male_female.svg'
-import filter from '../../../public/images//filter-button.svg'
+import filterButton from '../../../public/images//filter-button.svg'
 import Coins from '../../../public/images/coins.svg'
 import Data from '../../../public/images/data.svg'
 import People from '../../../public/images/people.svg'
@@ -22,14 +22,22 @@ import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
 import { PageNavigation } from '../components/PageNavigation'
 import { useRouter } from "next/navigation";
+import Filter from '../components/filter/Filter'
 
 
 
 
 const dashboard = () => {
 
+
+  const [showFilter, setShowFilter] = useState(false)
+
   const router = useRouter();
 
+  const filterHandler = () => {
+    setShowFilter(true)
+    console.log('i was clicked')
+  }
 
 
   const rows = [
@@ -186,13 +194,14 @@ const dashboard = () => {
                 >
                   <TableCell sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '10px' }}>
                     ORGANIZATION
-                    <Image alt='filter' src={filter} />
+                    <Image className='table__filter__icon' onClick={filterHandler} alt='filter' src={filterButton} />
                   </TableCell>
-                  <TableCell sx={{ alignItems: 'center', gap: '10px' }}>USERNAME<Image alt='filter' src={filter} /></TableCell>
-                  <TableCell>EMAIL<Image alt='filter' src={filter} /></TableCell>
-                  <TableCell>PHONE NUMBER<Image alt='filter' src={filter} /></TableCell>
-                  <TableCell>DATE JOINED<Image alt='filter' src={filter} /></TableCell>
-                  <TableCell>STATUS<Image alt='filter' src={filter} /></TableCell>
+                  {showFilter && <div  className='table__filter__wrapper'> <Filter />  </div>}
+                  <TableCell sx={{ alignItems: 'center', gap: '10px' }}>USERNAME<Image alt='filter' src={filterButton} /></TableCell>
+                  <TableCell>EMAIL<Image alt='filter' src={filterButton} /></TableCell>
+                  <TableCell>PHONE NUMBER<Image alt='filter' src={filterButton} /></TableCell>
+                  <TableCell>DATE JOINED<Image alt='filter' src={filterButton} /></TableCell>
+                  <TableCell>STATUS<Image alt='filter' src={filterButton} /></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -235,15 +244,15 @@ const dashboard = () => {
                         <MenuItem onClick={() => handleMenuItemClick('View Details')}>
                           <Image alt='icon' src={Eye} />
                           View Details</MenuItem>
-                        <MenuItem 
+                        <MenuItem
                         //  onClick={() => handleMenuItemClick('Blacklist User')}
-                         >
+                        >
                           <Image alt='icon' src={deleteUser} />
                           Blacklist User
                         </MenuItem>
-                        <MenuItem 
+                        <MenuItem
                         //  onClick={() => handleMenuItemClick('Activate User')}
-                         >
+                        >
                           <Image alt='icon' src={activeUser} />
 
                           Activate User</MenuItem>
@@ -254,6 +263,8 @@ const dashboard = () => {
               </TableBody>
             </Table>
           </TableContainer>
+
+
           <PageNavigation
             page={page}
             totalRecords={2}

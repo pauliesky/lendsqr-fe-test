@@ -5,6 +5,7 @@ nav {
     justify-content: space-between;
     padding-left: 50px;
     margin-top: 20px;
+    
 
     margin-bottom: 30px;
 
@@ -51,10 +52,15 @@ nav {
 
         display: flex;
         flex-direction: row;
-        gap: 47px;
+        gap: 20px;
         justify-content: center;
         align-items: center;
         margin-right: 60px;
+
+        .display_picture{
+
+            border-radius: 100%;
+        }
 
         div {
             display: flex;

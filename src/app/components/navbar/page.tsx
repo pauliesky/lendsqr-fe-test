@@ -4,6 +4,7 @@ import Image from 'next/image'
 import search from '../../../../public/images/search.png'
 import bell from '../../../../public/images/bell.png'
 import dropdown from '../../../../public/images/dropdown.svg'
+import picture from '../../../../public/images/dp.svg'
 
 const page = () => {
     return (
@@ -25,7 +26,7 @@ const page = () => {
                     <div>Docs</div>
                     <Image alt='bell' src={bell} />
 
-                    <Image alt='user' src={bell} />
+                    <Image className='display_picture'  alt='user' src={picture} />
 
 
                     <div>
