@@ -1,9 +1,12 @@
 import { Box, Pagination, Typography } from "@mui/material";
 import React from "react";
 
-export const PageNavigation = ({ page, totalRecords, handlePageChange }:any) => {
-  const rowsPerPage = 5;
-
+export const PageNavigation2 = ({
+  page,
+  totalRecords,
+  handlePageChange,
+  rowsPerPage = 5,
+}: any) => {
   return (
     <Box
       sx={{
@@ -14,14 +17,15 @@ export const PageNavigation = ({ page, totalRecords, handlePageChange }:any) => 
       }}
     >
       <Typography sx={{ fontSize: 12, fontWeight: 400, color: "#62635E" }}>
-        Showing {page * rowsPerPage + 1}-
-        {Math.min(page * rowsPerPage + rowsPerPage, totalRecords)} of{" "}
+        Showing{" "}
+        {totalRecords == 0 ? 0 : Math.max((page - 1) * rowsPerPage + 1, 0)}-
+        {Math.min((page - 1) * rowsPerPage + rowsPerPage, totalRecords)} of{" "}
         {totalRecords}
       </Typography>
       <Pagination
         count={Math.ceil(totalRecords / rowsPerPage)} // Calculate the number of pages
         variant="outlined"
-        page={page + 1} // Adjust the page value to 1-based index
+        page={page} // Adjust the page value to 1-based index
         onChange={handlePageChange} // Adjust the page value to 0-based index
         color="primary"
         shape="rounded"

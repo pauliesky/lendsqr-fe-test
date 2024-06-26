@@ -5,11 +5,10 @@ import Image from 'next/image'
 import backButton from '../../../public/images/back-button.svg'
 import picture from '../../../public/images/profile-dp.svg'
 import star from '../../../public/images/start.svg'
-
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 import GeneralDetails from '../components/general-details/GeneralDetails'
 interface TabPanelProps {
@@ -42,7 +41,28 @@ function a11yProps(index: number) {
 }
 
 
+
+const userDetail = localStorage.getItem("userDetail")
+
+const storedUser = JSON.parse(userDetail || '');
+
+console.log(storedUser)
+
+
+
+
 const page = () => {
+
+  useEffect(() => {
+    // Check if the page has already been reloaded
+    const hasRefreshed = localStorage.getItem('hasRefreshed');
+
+    if (!hasRefreshed) {
+      // Reload the page and set the flag in local storage
+      localStorage.setItem('hasRefreshed', 'true');
+      window.location.reload();
+    }
+  }, []);
 
 
 
@@ -69,7 +89,7 @@ const page = () => {
           <div className='basic_info'>
             <Image src={picture} alt='image' />
             <div>
-              <p>Grace Effiom</p>
+              <p>{storedUser.username}</p>
               <p>LSQFf587g90</p>
             </div>
             <div>
@@ -120,7 +140,7 @@ const page = () => {
         </section>
         <section>
           <CustomTabPanel value={value} index={0}>
-            <GeneralDetails />
+            <GeneralDetails user={storedUser} />
           </CustomTabPanel>
           <CustomTabPanel value={value} index={1}>
             Item Two

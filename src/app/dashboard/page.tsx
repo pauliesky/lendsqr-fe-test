@@ -21,6 +21,7 @@ import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import { useState } from 'react';
 import { PageNavigation } from '../components/PageNavigation'
+import { PageNavigation2 } from '../components/PageNavigation2'
 import { useRouter } from "next/navigation";
 import Filter from '../components/filter/Filter'
 import { useLendsqrUser } from '../hooks/useUser'
@@ -60,13 +61,18 @@ const dashboard = () => {
     setSelectedRow(null);
   };
 
-  const handleMenuItemClick = (action: any) => {
+  const handleMenuItemClick = (action: any, row: any) => {
     console.log(`${action} clicked for row:`, selectedRow);
     router.push('/user-details')
+    console.log(selectedRow)
+
+    const rowDetails = JSON.stringify(selectedRow);
+
+    localStorage.setItem("userDetail", rowDetails)
     handleClose();
   };
 
-  const [page, setPage] = useState(0);
+  const [page, setPage] = useState(1);
 
 
   const handlePageChange = (newPage: any) => {
@@ -117,33 +123,21 @@ const dashboard = () => {
           </div>
           <div className='card'  >
             <Image alt='icon' src={People} />
-
             <p>ACTIVE USERS</p>
             <p>{lendsqrUserData?.data?.summary?.totalUsers}</p>
-
-
           </div>
           <div className='card'  >
             <Image alt='icon' src={Data} />
-
             <p>USERS WITH LOANS</p>
             <p>{lendsqrUserData?.data?.summary?.usersWithLoans}</p>
-
-
           </div>
           <div className='card'  >
             <Image alt='icon' src={Coins} />
             <p>USERS WITH SAVINGS</p>
             <p>{lendsqrUserData?.data?.summary?.usersWithSavings}</p>
-
-
           </div>
 
         </div>
-
-
-
-
         <div className='table'>
           <TableContainer sx={{ borderColor: 'none', border: 'none', boxShadow: 'none' }} component={Paper}>
             <Table sx={{ minWidth: 0 }} aria-label="simple table">
@@ -176,7 +170,7 @@ const dashboard = () => {
                 {lendsqrUserData?.data?.users.map((row: any) => (
 
                   <TableRow
-                    // key={row.name}
+                    key={row.id}
                     sx={{
                       '&:last-child td, &:last-child th,': { border: 0 },
                       '& .MuiTableCell-body ': { paddingTop: '23px', paddingLeft: 0, paddingBottom: '23px', borderColor: 'rgba(33, 63, 125, 0.1)' },
@@ -218,7 +212,7 @@ const dashboard = () => {
                         open={Boolean(anchorEl)}
                         onClose={handleClose}
                       >
-                        <MenuItem onClick={() => handleMenuItemClick('View Details')}>
+                        <MenuItem onClick={() => handleMenuItemClick('View Details', row)}>
                           <Image alt='icon' src={Eye} />
                           View Details</MenuItem>
                         <MenuItem
@@ -239,14 +233,23 @@ const dashboard = () => {
                 ))}
               </TableBody>
             </Table>
+            {/* <PageNavigation
+              page={page}
+              totalRecords={lendsqrUserData?.data?.users.length}
+              handlePageChange={handlePageChange}
+            /> */}
+            <PageNavigation2
+              totalRecords={lendsqrUserData?.data?.users.length ?? 0}
+              page={page ?? 0}
+              handlePageChange={(v: any, val: any) =>
+                setPage ? setPage(val) : null
+              }
+            // rowsPerPage={5}
+            />
           </TableContainer>
 
 
-          <PageNavigation
-            page={page}
-            totalRecords={2}
-            handlePageChange={handlePageChange}
-          />
+
         </div>
 
 
