@@ -5,7 +5,7 @@ nav {
     justify-content: space-between;
     padding-left: 50px;
     margin-top: 20px;
-    
+
 
     margin-bottom: 30px;
 
@@ -17,7 +17,7 @@ nav {
             height: 40px;
             border-radius: 8px;
             opacity: 0.2px;
-            border: 1px solid #213F7D;
+            border: 1px solid rgba(84, 95, 125, 0.1);
             padding: 12px 0ox 12px 20px;
             display: flex;
             flex-direction: row;
@@ -57,7 +57,7 @@ nav {
         align-items: center;
         margin-right: 60px;
 
-        .display_picture{
+        .display_picture {
 
             border-radius: 100%;
         }

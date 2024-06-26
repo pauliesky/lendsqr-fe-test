@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Work_Sans } from "next/font/google";
 import Navigation from '@/app/components/navigations/page'
+import ReactQueryProvider from "@/app/reactQuery/ReactQueryProvider";
+
 const WorkSans = Work_Sans({ subsets: ["latin"] });
 
 
@@ -18,7 +20,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={WorkSans.className}>
         <Navigation />
-        {children}
+        <ReactQueryProvider>
+          {children}
+        </ReactQueryProvider>
       </body>
     </html>
   );

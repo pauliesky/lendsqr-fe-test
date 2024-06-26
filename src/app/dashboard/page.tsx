@@ -23,6 +23,7 @@ import { useState } from 'react';
 import { PageNavigation } from '../components/PageNavigation'
 import { useRouter } from "next/navigation";
 import Filter from '../components/filter/Filter'
+import { useLendsqrUser } from '../hooks/useUser'
 
 
 
@@ -30,83 +31,22 @@ import Filter from '../components/filter/Filter'
 const dashboard = () => {
 
 
+  const { lendsqrUserData,
+    isLendsqrUserError,
+    isLendsqrUserPending,
+    lendsqrUserError, } = useLendsqrUser()
+
+  console.log(lendsqrUserData?.data?.users)
+
+
   const [showFilter, setShowFilter] = useState(false)
 
   const router = useRouter();
 
   const filterHandler = () => {
-    setShowFilter(true)
-    console.log('i was clicked')
+    setShowFilter((prevShowFilter) => !prevShowFilter);
   }
 
-
-  const rows = [
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-    {
-      organization: "Lendsqr",
-      username: "Conner - Gerlach",
-      email: " user@gmail.com ",
-      phoneNumber: "09043372281",
-      dateJoined: "2Months",
-      status: "Inactive",
-    },
-
-  ];
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedRow, setSelectedRow] = useState(null);
 
@@ -147,27 +87,30 @@ const dashboard = () => {
 
             <Image alt='icon' src={Gender} />
             <p>USERS</p>
-            <p>4566</p>
+            <p>{lendsqrUserData?.data?.summary?.activeUsers}</p>
 
           </div>
           <div className='card'  >
             <Image alt='icon' src={People} />
 
             <p>ACTIVE USERS</p>
-            <p>4566</p>
+            <p>{lendsqrUserData?.data?.summary?.totalUsers}</p>
+
 
           </div>
           <div className='card'  >
             <Image alt='icon' src={Data} />
 
             <p>USERS WITH LOANS</p>
-            <p>4566</p>
+            <p>{lendsqrUserData?.data?.summary?.usersWithLoans}</p>
+
 
           </div>
           <div className='card'  >
             <Image alt='icon' src={Coins} />
             <p>USERS WITH SAVINGS</p>
-            <p>4566</p>
+            <p>{lendsqrUserData?.data?.summary?.usersWithSavings}</p>
+
 
           </div>
 
@@ -196,7 +139,7 @@ const dashboard = () => {
                     ORGANIZATION
                     <Image className='table__filter__icon' onClick={filterHandler} alt='filter' src={filterButton} />
                   </TableCell>
-                  {showFilter && <div  className='table__filter__wrapper'> <Filter />  </div>}
+                  {showFilter && <div className='table__filter__wrapper'> <Filter />  </div>}
                   <TableCell sx={{ alignItems: 'center', gap: '10px' }}>USERNAME<Image alt='filter' src={filterButton} /></TableCell>
                   <TableCell>EMAIL<Image alt='filter' src={filterButton} /></TableCell>
                   <TableCell>PHONE NUMBER<Image alt='filter' src={filterButton} /></TableCell>
@@ -205,7 +148,7 @@ const dashboard = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {rows.map((row) => (
+                {lendsqrUserData?.data?.users.map((row:any) => (
                   <TableRow
                     // key={row.name}
                     sx={{

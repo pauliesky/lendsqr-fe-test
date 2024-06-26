@@ -21,4 +21,39 @@
     p {
         margin-bottom: 6px;
     }
+
+
+    &_button {
+
+        display: flex;
+        flex-direction: row;
+        gap: 14px;
+        justify-content: center;
+
+        &_reset {
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(84, 95, 125, 0.1);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16.42px;
+            text-align: center;
+            color: rgba(84, 95, 125, 1);
+
+        }
+
+        &_filter {
+            padding: 12px 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(57, 205, 204, 0.1);
+            font-size: 14px;
+            font-weight: 600;
+            line-height: 16.42px;
+            text-align: center;
+            color: rgba(255, 255, 255, 1);
+            background-color: rgba(57, 205, 204, 1);
+
+        }
+
+    }
 }

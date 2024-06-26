@@ -13,20 +13,20 @@ const Filter = () => {
                 </div>
                 <div>
                     <p>Username</p>
-                    <input type='name' />
+                    <input type='name' placeholder='username' />
                 </div>
                 <div>
                     <p>Email</p>
-                    <input type='email' />
+                    <input type='email' placeholder='email' />
                 </div>
                 <div>
                     <p>Date</p>
-                    <input type='date' />
+                    <input type='date' placeholder='date' />
 
                 </div>
                 <div>
                     <p>Phone Numer</p>
-                    <input type='number' />
+                    <input type='number' placeholder='phone-number' />
 
                 </div>
                 <div>
@@ -34,9 +34,9 @@ const Filter = () => {
                     <Select />
                 </div>
 
-                <div>
-                    <button>Reset</button>
-                    <button>Filter</button>
+                <div className='filter_button'>
+                    <button className='filter_button_reset'>Reset</button>
+                    <button className='filter_button_filter'>Filter</button>
                 </div>
             </div>
 
