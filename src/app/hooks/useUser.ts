@@ -13,7 +13,7 @@ export const useLendsqrUser = () => {
   } = useQuery({
     queryKey: ["lendsqrData"],
     queryFn: async () => {
-      return await axios.get("https://run.mocky.io/v3/aae87cb0-a0ea-4488-864f-a79aa8f34d8f");
+      return await axios.get("https://run.mocky.io/v3/b981f7bd-595d-4eef-bbb8-e95045ecc532");
     },
   });
   return {

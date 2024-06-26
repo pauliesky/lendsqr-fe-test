@@ -36,7 +36,7 @@ const dashboard = () => {
     isLendsqrUserPending,
     lendsqrUserError, } = useLendsqrUser()
 
-  console.log(lendsqrUserData?.data?.users)
+  console.log(lendsqrUserData)
 
 
   const [showFilter, setShowFilter] = useState(false)
@@ -73,6 +73,31 @@ const dashboard = () => {
     setPage(newPage - 1);
 
   };
+
+
+  const getStatusStyles = (status: any) => {
+    const baseStyles = {
+      padding: '5px 10px',
+      borderRadius: '100px',
+      // display: 'inline-block',
+      width: 'fit-content'
+    };
+
+    switch (status) {
+      case 'Active':
+        return { ...baseStyles, color: 'rgba(57, 205, 98, 1)', backgroundColor: '#EAF9DE' };
+      case 'Pending':
+        return { ...baseStyles, color: 'rgba(233, 178, 0, 1)', backgroundColor: 'lightyellow' };
+      case 'Blacklisted':
+        return { ...baseStyles, color: 'rgba(228, 3, 59, 1)', backgroundColor: '#FFFAEB' };
+      case 'inactive':
+        return { ...baseStyles, color: 'rgba(84, 95, 125, 1)', backgroundColor: 'red' };
+      default:
+        return baseStyles;
+    }
+  };
+
+
 
   return (
     <>
@@ -148,7 +173,8 @@ const dashboard = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {lendsqrUserData?.data?.users.map((row:any) => (
+                {lendsqrUserData?.data?.users.map((row: any) => (
+
                   <TableRow
                     // key={row.name}
                     sx={{
@@ -164,7 +190,15 @@ const dashboard = () => {
                     <TableCell>{row.email}</TableCell>
                     <TableCell>{row.phoneNumber}</TableCell>
                     <TableCell>{row.dateJoined}</TableCell>
-                    <TableCell>{row.status}</TableCell>
+                    <TableCell
+
+                    >
+                      <div style={getStatusStyles(row.status)}  >
+                        {row.status}
+
+                      </div>
+
+                    </TableCell>
                     <TableCell>
                       <IconButton onClick={(event) => handleClick(event, row)}>
                         <MoreVertIcon />
