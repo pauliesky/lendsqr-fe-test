@@ -23,38 +23,43 @@ const GeneralDetails = (user: any) => {
                         </span>
                         <span>
                             <p>Phone Number</p>
-                            <p>07060780922</p>
+                            <p>{user.user.phoneNumber}</p>
 
                         </span>
                         <span>
                             <p>Email Address</p>
-                            <p>grace@gmail.com</p>
+                            <p>{user.user.email}</p>
+
 
                         </span>
                         <span>
                             <p>Bvn</p>
-                            <p>07060780922</p>
+                            <p>{user.user.BVN}</p>
+
                         </span>
                         <span>
                             <p>Gender</p>
-                            <p>Female</p>
+                            <p>{user.user.gender}</p>
+
                         </span>
 
                     </div>
                     <div>
                         <span>
                             <p>Marital Status</p>
-                            <p>{user.user.username}</p>
+                            <p>{user.user.maritalStatus}</p>
 
                         </span>
                         <span>
                             <p>Children</p>
-                            <p>07060780922</p>
+                            <p>{user.user.children}</p>
+
 
                         </span>
                         <span>
                             <p>Type of Residence</p>
-                            <p>grace@gmail.com</p>
+                            <p>{user.user.residenceType}</p>
+
 
                         </span>
                     </div>
@@ -63,120 +68,106 @@ const GeneralDetails = (user: any) => {
                     <p>Education and Employment</p>
                     <div>
                         <span>
-                            <p>Level of Education</p>
-                            <p>Grace Effiom</p>
+                            <p>LEVEL OF EDUCATION</p>
+                            <p>{user.user.education.level}</p>
+
 
                         </span>
                         <span>
-                            <p>Phone Number</p>
-                            <p>07060780922</p>
+                            <p>EMPLOYMENT STATUS</p>
+                            <p>{user.user.education.employmentStatus}</p>
+
 
                         </span>
                         <span>
-                            <p>Email Address</p>
-                            <p>grace@gmail.com</p>
+                            <p>SECTOR OF EMPLOYMENT</p>
+                            <p>{user.user.education.sector}</p>
+
 
                         </span>
                         <span>
-                            <p>Bvn</p>
-                            <p>07060780922</p>
+                            <p>DURATION OF EMPLOYMENT</p>
+                            <p>{user.user.education.duration}</p>
+
                         </span>
-                        <span>
-                            <p>Gender</p>
-                            <p>Female</p>
-                        </span>
+
 
                     </div>
                     <div>
                         <span>
-                            <p>FULL NAME</p>
-                            <p>Grace Effiom</p>
+                            <p>OFFICE MAIL</p>
+                            <p>{user.user.education.officeEmail}</p>
+
 
                         </span>
                         <span>
-                            <p>Phone Number</p>
-                            <p>07060780922</p>
+                            <p>MONTHLY INCOME</p>
+                            <p>{user.user.education.monthlyIncome}</p>
+
 
                         </span>
                         <span>
-                            <p>Email Address</p>
-                            <p>grace@gmail.com</p>
+                            <p>LOAN REPAYMENT</p>
+                            <p>{user.user.education.loanRepayment}</p>
+
 
                         </span>
                     </div>
                 </section>
                 <section>
-                    <p>Personal Information</p>
+                    <p>SOCIALS</p>
                     <div>
                         <span>
-                            <p>FULL NAME</p>
-                            <p>Grace Effiom</p>
+                            <p>TWITTER</p>
+                            <p>{user.user.socials.twitter}</p>
 
                         </span>
                         <span>
-                            <p>Phone Number</p>
-                            <p>07060780922</p>
+                            <p>FACEBOOK</p>
+                            <p>{user.user.socials.facebook}</p>
+
 
                         </span>
                         <span>
-                            <p>Email Address</p>
-                            <p>grace@gmail.com</p>
+                            <p>INSTAGRAM</p>
+                            <p>{user.user.socials.instagram}</p>
+
 
                         </span>
                     </div>
                 </section>
                 <section>
-                    <p>Personal Information</p>
+                    <p>GUARANTOR</p>
                     <div>
                         <span>
                             <p>FULL NAME</p>
-                            <p></p>
+                            <p>{user.user.guarantor.fullName}</p>
+
 
                         </span>
                         <span>
                             <p>Phone Number</p>
-                            <p>07060780922</p>
+                            <p>{user.user.guarantor.phoneNumber}</p>
+
 
                         </span>
                         <span>
                             <p>Email Address</p>
-                            <p>grace@gmail.com</p>
+                            <p>{user.user.guarantor.email}</p>
+
 
                         </span>
                         <span>
-                            <p>Bvn</p>
-                            <p>07060780922</p>
+                            <p>RELATIONSHIP</p>
+                            <p>{user.user.guarantor.relationship}</p>
+
                         </span>
 
 
                     </div>
 
                 </section>
-                <section>
-                    <p>Personal Information</p>
-                    <div>
-                        <span>
-                            <p>FULL NAME</p>
-                            <p>Grace Effiom</p>
 
-                        </span>
-                        <span>
-                            <p>Phone Number</p>
-                            <p>07060780922</p>
-
-                        </span>
-                        <span>
-                            <p>Email Address</p>
-                            <p>grace@gmail.com</p>
-
-                        </span>
-                        <span>
-                            <p>Bvn</p>
-                            <p>07060780922</p>
-                        </span>
-                    </div>
-
-                </section>
             </div>
 
 
