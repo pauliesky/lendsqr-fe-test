@@ -19,7 +19,7 @@ import deleteUser from '../../../public/images/delete-friend.svg'
 // import Paper from '@mui/material/Paper';
 import { TableContainer, Paper, Table, TableHead, TableRow, TableCell, TableBody, IconButton, Menu, MenuItem } from '@mui/material';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { PageNavigation } from '../components/PageNavigation'
 import { PageNavigation2 } from '../components/PageNavigation2'
 import { useRouter } from "next/navigation";
@@ -37,7 +37,7 @@ const dashboard = () => {
     isLendsqrUserPending,
     lendsqrUserError, } = useLendsqrUser()
 
-  console.log(lendsqrUserData)
+  console.log('lendsqrUserData', lendsqrUserData)
 
 
   const [showFilter, setShowFilter] = useState(false)
@@ -104,6 +104,63 @@ const dashboard = () => {
   };
 
 
+  interface Filters {
+    organization: { value: string; label: string } | null;
+    username: string;
+    email: string;
+    date: string;
+    phoneNumber: string;
+    status: { value: string; label: string } | null;
+  }
+
+
+  const [filters, setFilters] = useState<Filters>({
+    organization: null,
+    username: '',
+    email: '',
+    date: '',
+    phoneNumber: '',
+    status: null,
+  });
+
+  const [filteredData, setFilteredData] = useState(lendsqrUserData?.data?.users || []);
+
+  console.log('filteredData', filteredData)
+
+  useEffect(() => {
+    setFilteredData(lendsqrUserData?.data?.users || []);
+  }, [lendsqrUserData]);
+
+  const applyFilter = () => {
+    const filtered = lendsqrUserData?.data?.users.filter(user => {
+      return (
+        (!filters.organization || user.organization === filters.organization.value) &&
+        (!filters.username || user.username.includes(filters.username)) &&
+        (!filters.email || user.email.includes(filters.email)) &&
+        (!filters.date || new Date(user.dateJoined).toISOString().slice(0, 10) === filters.date) &&
+        (!filters.phoneNumber || user.phoneNumber.includes(filters.phoneNumber)) &&
+        (!filters.status || user.status === filters.status.value)
+      );
+    });
+    setFilteredData(filtered);
+  };
+
+  const resetFilter = () => {
+    setFilters({
+      organization: null,
+      username: '',
+      email: '',
+      date: '',
+      phoneNumber: '',
+      status: null,
+    });
+    setFilteredData(lendsqrUserData?.data?.users || []);
+  };
+
+
+
+
+
 
   return (
     <>
@@ -158,7 +215,7 @@ const dashboard = () => {
                     ORGANIZATION
                     <Image className='table__filter__icon' onClick={filterHandler} alt='filter' src={filterButton} />
                   </TableCell>
-                  {showFilter && <div className='table__filter__wrapper'> <Filter />  </div>}
+                  {showFilter && <div className='table__filter__wrapper'>  <Filter data={filteredData} filters={filters} setFilters={setFilters} applyFilter={applyFilter} resetFilter={resetFilter} /> </div>}
                   <TableCell sx={{ alignItems: 'center', gap: '10px' }}>USERNAME<Image alt='filter' src={filterButton} /></TableCell>
                   <TableCell>EMAIL<Image alt='filter' src={filterButton} /></TableCell>
                   <TableCell>PHONE NUMBER<Image alt='filter' src={filterButton} /></TableCell>
@@ -167,7 +224,7 @@ const dashboard = () => {
                 </TableRow>
               </TableHead>
               <TableBody>
-                {lendsqrUserData?.data?.users.map((row: any) => (
+                {filteredData.map((row: any) => (
 
                   <TableRow
                     key={row.id}
